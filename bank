@@ -1,0 +1,39 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+class Account
+{
+    //data members
+    int accno;
+    float balance;
+    string name;
+public:
+    static int noofaccounts;
+    Account():accno(0),balance(0.0),name(""){noofaccounts++;}//default constructor
+    Account(const Account &obj):accno(obj.accno),balance(obj.balance),name(obj.name){noofaccounts++;}//copy constructor
+    Account(int no, float bal,string n):accno(no),balance(bal),name(n){noofaccounts++;}//parameterized constructor
+
+    void deposite(float amt)
+    {
+      balance=balance+amt;
+    }
+
+    void withdraw(float amt)
+    {
+        if(amt<balance)
+            balance=balance - amt;
+        else
+            cout<<"Cannot withdraw the money.";
+    }
+
+};
+int Account::noofaccounts=0;
+int main()
+{
+    Account a1(2,2.3,"Parvathy");
+    Account a2(3,2.3,"ram");
+    cout<<a2.noofaccounts<<endl;
+    Account a3(a1);
+    cout<<a2.noofaccounts<<endl;
+}
