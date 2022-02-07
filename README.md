@@ -1,5 +1,4 @@
 # class---Bank
-
 -static variable is declared inside a class
 -Initialize static variable outside the class
 -static variable is not associate with any objects. That is, it is for all objects of that class. 
